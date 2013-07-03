@@ -2,7 +2,7 @@
   "name": "async-waterfall",
   "repo": "es128/async-waterfall",
   "description": "Simple, isolated async waterfall module for JavaScript",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": ["async", "waterfall"],
   "main": "index.js",
   "scripts": ["index.js"],
