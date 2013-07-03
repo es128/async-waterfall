@@ -42,14 +42,12 @@
         if (err) {
           callback.apply(null, arguments);
           callback = function () {};
-        }
-        else {
+        } else {
           var args = Array.prototype.slice.call(arguments, 1);
           var next = iterator.next();
           if (next) {
             args.push(wrapIterator(next));
-          }
-          else {
+          } else {
             args.push(callback);
           }
           nextTick(function () {
