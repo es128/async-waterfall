@@ -64,6 +64,6 @@
   } else if (typeof module === 'object' && module.exports) {
     module.exports = waterfall; // CommonJS
   } else {
-    globals.asyncEach = waterfall; // <script>
+    globals.asyncWaterfall = waterfall; // <script>
   }
 })(this);
