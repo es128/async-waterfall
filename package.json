@@ -1,0 +1,20 @@
+{
+  "name": "async-waterfall",
+  "version": "0.1.0",
+  "description": "Simple, isolated async waterfall module for JavaScript",
+  "author": {
+    "name": "Elan Shanker",
+    "url": "http://github.com/es128"
+  },
+  "homepage": "https://github.com/es128/async-waterfall",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:es128/async-waterfall.git"
+  },
+  "bugs": {
+    "url": "https://github.com/es128/async-waterfall/issues"
+  },
+  "main": "./index",
+  "keywords": ["async", "waterfall"],
+  "dependencies": {}
+}
