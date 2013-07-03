@@ -32,18 +32,18 @@ completed. This will be passed the results of the last task's callback.
 ```javascript
 var waterfall = require('async-waterfall');
 waterfall([
-    function(callback){
-        callback(null, 'one', 'two');
-    },
-    function(arg1, arg2, callback){
-        callback(null, 'three');
-    },
-    function(arg1, callback){
-        // arg1 now equals 'three'
-        callback(null, 'done');
-    }
+  function(callback){
+    callback(null, 'one', 'two');
+  },
+  function(arg1, arg2, callback){
+    callback(null, 'three');
+  },
+  function(arg1, callback){
+    // arg1 now equals 'three'
+    callback(null, 'done');
+  }
 ], function (err, result) {
-   // result now equals 'done'
+  // result now equals 'done'
 });
 ```
 
