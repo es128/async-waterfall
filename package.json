@@ -1,7 +1,7 @@
 {
   "name": "async-waterfall",
-  "version": "0.1.1",
-  "description": "Simple, isolated async waterfall module for JavaScript",
+  "version": "0.1.2",
+  "description": "Runs a list of async tasks, passing the results of each into the next one",
   "author": {
     "name": "Elan Shanker",
     "url": "http://github.com/es128"
@@ -15,6 +15,6 @@
     "url": "https://github.com/es128/async-waterfall/issues"
   },
   "main": "./index",
-  "keywords": ["async", "waterfall"],
+  "keywords": ["async", "waterfall", "tasks", "control", "flow"],
   "dependencies": {}
 }
