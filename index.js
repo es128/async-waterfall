@@ -3,10 +3,12 @@
   'use strict';
 
   var nextTick = function (fn) {
-    if (typeof process === 'undefined' || !(process.nextTick)) {
-      setTimeout(fn, 0);
-    } else {
+    if (typeof setImmediate === 'function') {
+      setImmediate(fn);
+    } else if (typeof process !== 'undefined' && process.nextTick) {
       process.nextTick(fn);
+    } else {
+      setTimeout(fn, 0);
     }
   };
 
