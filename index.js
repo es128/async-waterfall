@@ -27,10 +27,14 @@
     };
     return makeCallback(0);
   };
+  
+  var _isArray = Array.isArray || function(maybeArray){
+    return Object.prototype.toString.call(maybeArray) === "[object Array]";
+  };
 
   var waterfall = function (tasks, callback) {
     callback = callback || function () {};
-    if (tasks.constructor !== Array) {
+    if (!_isArray(tasks)) {
       var err = new Error('First argument to waterfall must be an array of functions');
       return callback(err);
     }
