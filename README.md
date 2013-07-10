@@ -27,10 +27,27 @@ passed as arguments in order to the next task.
 * **optionalCallback** - An optional callback to run once all the functions have
 completed. This will be passed the results of the last task's callback.
 
-#### Node.js:
+##### Node.js:
 
 ```javascript
 var waterfall = require('async-waterfall');
+waterfall(tasks, callback);
+```
+
+##### Browser:
+
+```javascript
+// component(1)
+var waterfall = require('async-waterfall');
+waterfall(tasks, callback);
+
+// Default:
+window.asyncWaterfall(tasks, callback);
+```
+
+##### Tasks as Array of Functions
+
+```javascript
 waterfall([
   function(callback){
     callback(null, 'one', 'two');
@@ -47,16 +64,20 @@ waterfall([
 });
 ```
 
-#### Browser:
+##### Derive Tasks from an Array.map
 
 ```javascript
-// component(1)
-var waterfall = require('async-waterfall');
-waterfall(tasks, callback);
-
-// Default:
-window.asyncWaterfall(tasks, callback);
+waterfall(myArray.map(function (arrayItem) {
+  return function (lastItemResult, nextCallback) {
+    // same execution for each item in the array
+    var itemResult = doThingsWith(arrayItem, lastItemResult);
+    // results carried along from each to the next
+    nextCallback(null, itemResult);
+}}), function (err, result) {
+  // final callback
+});
 ```
+
 
 ## Acknowledgements
 Hat tip to [Caolan McMahon](https://github.com/caolan) and
