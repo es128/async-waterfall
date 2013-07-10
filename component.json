@@ -2,7 +2,7 @@
   "name": "async-waterfall",
   "repo": "es128/async-waterfall",
   "description": "Runs a list of async tasks, passing the results of each into the next one",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "keywords": ["async", "waterfall", "tasks", "control", "flow"],
   "main": "index.js",
   "scripts": ["index.js"],
