@@ -65,7 +65,7 @@
 
   if (typeof define === 'function' && typeof define.amd === 'object') {
     define(waterfall); // RequireJS
-  } else if (typeof module === 'object' && module.exports) {
+  } else if (typeof module !== "undefined" && module.exports) {
     module.exports = waterfall; // CommonJS
   } else {
     globals.asyncWaterfall = waterfall; // <script>
