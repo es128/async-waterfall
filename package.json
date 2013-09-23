@@ -1,6 +1,6 @@
 {
   "name": "async-waterfall",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Runs a list of async tasks, passing the results of each into the next one",
   "author": {
     "name": "Elan Shanker",
