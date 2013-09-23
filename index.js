@@ -29,7 +29,7 @@
   };
   
   var _isArray = Array.isArray || function(maybeArray){
-    return Object.prototype.toString.call(maybeArray) === "[object Array]";
+    return Object.prototype.toString.call(maybeArray) === '[object Array]';
   };
 
   var waterfall = function (tasks, callback) {
@@ -63,8 +63,10 @@
     wrapIterator(makeIterator(tasks))();
   };
 
-  if (typeof define === 'function' && typeof define.amd === 'object') {
-    define(waterfall); // RequireJS
+  if (typeof define !== 'undefined' && define.amd) {
+    define([], function () {
+      return waterfall;
+    }); // RequireJS
   } else if (typeof module !== 'undefined' && module.exports) {
     module.exports = waterfall; // CommonJS
   } else {
