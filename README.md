@@ -67,17 +67,26 @@ waterfall([
 ##### Derive Tasks from an Array.map
 
 ```javascript
+/* basic - no arguments */
 waterfall(myArray.map(function (arrayItem) {
-  return function (lastItemResult, nextCallback) {
-    // same execution for each item in the array
-    var itemResult = doThingsWith(arrayItem, lastItemResult);
-    // results carried along from each to the next
-    nextCallback(null, itemResult);
-}}), function (err, result) {
+  return function (nextCallback) {
+    // same execution for each item, call the next one when done
+    doAsyncThingsWith(arrayItem, nextCallback);
+}}));
+
+/* with arguments, initializer function, and final callback */
+waterfall([function initializer (firstMapFunction) {
+    firstMapFunction(null, initialValue);
+  }].concat(myArray.map(function (arrayItem) {
+    return function (lastItemResult, nextCallback) {
+      // same execution for each item in the array
+      var itemResult = doThingsWith(arrayItem, lastItemResult);
+      // results carried along from each to the next
+      nextCallback(null, itemResult);
+}})), function (err, finalResult) {
   // final callback
 });
 ```
-
 
 ## Acknowledgements
 Hat tip to [Caolan McMahon](https://github.com/caolan) and
